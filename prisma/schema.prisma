@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Carton {
+  id           Int       @id @default(autoincrement())
+  boxes        String
+  cigaretteId  Int       @unique
+  cartonAmount String
+  Cigarette    Cigarette @relation(fields: [cigaretteId], references: [id], onDelete: Cascade)
+}
+
+model Cigarette {
+  id                Int      @id @default(autoincrement())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime
+  name              String
+  amount            String
+  userId            Int
+  numberOfCigarette String
+  tar               String?
+  User              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Carton            Carton?
+}
+
+model Text {
+  id     Int    @id @default(autoincrement())
+  text   String
+  amount String
+}
+
+model Total {
+  id          Int      @id @default(autoincrement())
+  totalAmount String
+  userId      Int      @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id             Int         @id @default(autoincrement())
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime
+  email          String      @unique
+  hashedPassword String
+  nickName       String?
+  Cigarette      Cigarette[]
+  Total          Total?
+}
