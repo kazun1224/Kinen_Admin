@@ -2128,6 +2128,14 @@ ra-core@^4.5.2:
     react-is "^17.0.2"
     react-query "^3.32.1"
 
+ra-data-json-server@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/ra-data-json-server/-/ra-data-json-server-4.5.2.tgz#bfdcf17de18aa489811148649650837077ec230f"
+  integrity sha512-ChSB3kf5e3ASwvhL7ah1fuxGj6UL0C1dfKdYeo8dH7mr+To7tHGOvY7yL7nmHuy7anBC04rPhdvyZMOQMsYC8Q==
+  dependencies:
+    query-string "^7.1.1"
+    ra-core "^4.5.2"
+
 ra-i18n-polyglot@^4.5.2:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/ra-i18n-polyglot/-/ra-i18n-polyglot-4.5.2.tgz#ae6dac7d9dd290698e07f541552e282d2346659d"
